@@ -20,5 +20,7 @@
   "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
   "input": "embedded fixtures; no stdin",
   "utc": "2026-11-06T07:38:08.456790+00:00",
-  "path_export": "project and home prefixes only"
+  "path_export": "project and home prefixes only",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
 }

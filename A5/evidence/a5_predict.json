@@ -21,5 +21,7 @@
   "path_export": "project and home prefixes only",
   "run_exit": 0,
   "stdout": "~f ~main caught 42\n",
-  "stderr": ""
+  "stderr": "",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
 }

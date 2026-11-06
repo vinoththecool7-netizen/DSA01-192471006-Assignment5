@@ -16,12 +16,12 @@
 			<text x="8" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
 			<text x="8" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>
 			<rect x="170" y="135" width="160" height="100" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
-			<text x="227.6865" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">OP table</text>
+			<text x="199.268" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">OutPatientBill table</text>
 			<text x="178" y="198" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,396) scale(1,-1)">total -&gt; OP.total</text>
 			<text x="178" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
 			<text x="178" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>
 			<rect x="340" y="135" width="160" height="100" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
-			<text x="400.4365" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">IP table</text>
+			<text x="373.8495" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">InPatientBill table</text>
 			<text x="348" y="198" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,396) scale(1,-1)">total -&gt; IP.total</text>
 			<text x="348" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
 			<text x="348" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>

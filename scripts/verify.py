@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """Compile, execute, compare; publish relative logs with source digests."""
-import subprocess,pathlib,hashlib,json,datetime,os,sys
+import subprocess,pathlib,hashlib,json,datetime,os,sys,re
 R=pathlib.Path(__file__).resolve().parents[1];os.chdir(R)
 (R/'build').mkdir(exist_ok=True)
 compiler=subprocess.check_output(['g++','--version'],text=True)
 flags=['-std=c++17','-Wall','-Wextra','-fsanitize=address','-g','-fno-omit-frame-pointer']
 manifest=[]
+def headers(src):
+ result={}
+ def scan(p):
+  for name in re.findall(r'#include\s+"([^\"]+)"',p.read_text()):
+   q=(p.parent/name).resolve();rel=q.relative_to(R).as_posix()
+   if rel not in result:result[rel]=hashlib.sha256(q.read_bytes()).hexdigest();scan(q)
+ scan(R/src);return result
 def clean(text):return text.replace(str(R),'<project>').replace(str(pathlib.Path.home()),'<home>')
 def run(name,src,expected=None,invalid=False,unsafe=False,opt=False,args=None):
  task=src.split('/')[0];out=R/task/'evidence';out.mkdir(exist_ok=True)
@@ -14,7 +21,7 @@ def run(name,src,expected=None,invalid=False,unsafe=False,opt=False,args=None):
  if src.endswith('.txt'):cmd+=['-x','c++']
  cmd += [src,'-o',binary]
  c=subprocess.run(cmd,capture_output=True,text=True)
- entry={'name':name,'source':src,'source_sha256':hashlib.sha256(pathlib.Path(src).read_bytes()).hexdigest(),'command':cmd,'compile_exit':c.returncode,'compiler':compiler,'input':'embedded fixtures; no stdin','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'path_export':'project and home prefixes only'}
+ entry={'local_headers_sha256':headers(src),'name':name,'source':src,'source_sha256':hashlib.sha256(pathlib.Path(src).read_bytes()).hexdigest(),'command':cmd,'compile_exit':c.returncode,'compiler':compiler,'input':'embedded fixtures; no stdin','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'path_export':'project and home prefixes only'}
  (out/(name+'.compile.txt')).write_text('$ '+' '.join(cmd)+'\n'+clean(c.stdout+c.stderr)+'exit='+str(c.returncode)+'\n')
  if invalid:
   assert c.returncode!=0

@@ -21,5 +21,10 @@
   "path_export": "project and home prefixes only",
   "run_exit": 0,
   "stdout": "OP total 1700 payer0=1700 payer1=1360 payer2=1000\nIP total 48000 payer0=48000 payer1=38400 payer2=40000\nDC total 20000 payer0=20000 payer1=16000 payer2=18000\nER total 2500 payer0=2500 payer1=2000 payer2=2500\nday=72200; 12 payer checks PASS\nzero, exact cover, 100 percent copay PASS\n",
-  "stderr": ""
+  "stderr": "",
+  "local_headers_sha256": {
+    "B1/test_cases.hpp": "b4082926e67d331d6bc640719628eb615b46bc0056927c6e50c593e59dba53de",
+    "include/billing.hpp": "ba749950ba0af987752445b6f0d90d52597ff5e291af30a7ab33162af06b554c"
+  },
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
 }
