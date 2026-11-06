@@ -1,0 +1,3 @@
+$ build/a2_predict
+500 ~OPBill ~Bill 
+exit=0

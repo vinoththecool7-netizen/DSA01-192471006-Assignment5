@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{font:17px Arial;color:#18303d;background:#edf3f5;padding:32px}main{background:white;padding:32px;border-top:6px solid #086a70;max-width:1080px;margin:auto}h1{color:#086a70}h2{font-size:18px;margin-top:28px}p{line-height:1.5}pre{font:15px monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f8;padding:18px}svg{display:block;width:100%;height:auto;max-height:500px}small{color:#46616e}</style></head><body><main><h1>A2 - Recorded evidence viewer</h1><p>S Vinoth Kumar | 192471006</p><small>Genuine captured execution logs and conceptual design figures. This viewer is not an original terminal capture.</small><?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="500" height="250" preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="500" height="250"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-250)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="135" width="160" height="100" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="57.076" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">Bill table</text>
+			<text x="8" y="198" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,396) scale(1,-1)">total -&gt; pure slot</text>
+			<text x="8" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
+			<text x="8" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>
+			<rect x="170" y="135" width="160" height="100" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="227.6865" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">OP table</text>
+			<text x="178" y="198" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,396) scale(1,-1)">total -&gt; OP.total</text>
+			<text x="178" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
+			<text x="178" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>
+			<rect x="340" y="135" width="160" height="100" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="400.4365" y="218" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,436) scale(1,-1)">IP table</text>
+			<text x="348" y="198" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,396) scale(1,-1)">total -&gt; IP.total</text>
+			<text x="348" y="182" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,364) scale(1,-1)">type -&gt; virtual slot</text>
+			<text x="348" y="166" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,332) scale(1,-1)">destructor -&gt; virtual</text>
+			<rect x="20" y="5" width="460" height="85" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="163.98" y="73" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,146) scale(1,-1)">Conceptual dispatch of b-&gt;total()</text>
+			<text x="28" y="53" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,106) scale(1,-1)">Bill* b -&gt; concrete object -&gt; vptr -&gt; concrete table</text>
+			<text x="28" y="37" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,74) scale(1,-1)">entry for total -&gt; derived implementation</text>
+			<text x="28" y="21" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,42) scale(1,-1)">Tables are shared; exact layout is ABI-dependent.</text>
+		</g>
+	</g>
+</svg>
+<h2>a2_predict.run.txt</h2><pre>$ build/a2_predict
+500 ~OPBill ~Bill 
+exit=0
+</pre><h2>a2_unsafe.run.txt</h2><pre>$ build/a2_unsafe
+exit=-5
+</pre></main></body></html>

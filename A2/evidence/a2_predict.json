@@ -1,0 +1,25 @@
+{
+  "name": "a2_predict",
+  "source": "A2/predict.cpp",
+  "source_sha256": "f1be9689a00a55da1d5ebe07684b24f66e9a6057ac7265cb99153d0d0967c3e3",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "A2/predict.cpp",
+    "-o",
+    "build/a2_predict"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:38:07.501909+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "500 ~OPBill ~Bill \n",
+  "stderr": ""
+}

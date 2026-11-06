@@ -1,0 +1,25 @@
+{
+  "name": "a2_unsafe",
+  "source": "A2/unsafe_delete.cpp",
+  "source_sha256": "dbc988400397c8a99c9f3a013ccc6e333f7e04b2a02dbff95ffbd4ceb91b2408",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "A2/unsafe_delete.cpp",
+    "-o",
+    "build/a2_unsafe"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:38:08.885876+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": -5,
+  "stdout": "",
+  "stderr": ""
+}
