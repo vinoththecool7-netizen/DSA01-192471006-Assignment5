@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="500" height="330" preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 330" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="500" height="330"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-330)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="100" y="210" width="300" height="112" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="205.67" y="305" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,610) scale(1,-1)">Bill &lt;&lt;abstract&gt;&gt;</text>
+			<text x="108" y="285" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,570) scale(1,-1)">- patient : string</text>
+			<text x="108" y="269" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,538) scale(1,-1)">+ total(), type() : pure virtual, noexcept</text>
+			<text x="108" y="253" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,506) scale(1,-1)">+ ~Bill() : virtual, noexcept; print() : shared</text>
+			<rect x="0" y="95" width="240" height="76" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="83.634" y="154" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,308) scale(1,-1)">OutPatientBill</text>
+			<text x="8" y="134" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,268) scale(1,-1)">total(), type() : override</text>
+			<text x="8" y="118" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,236) scale(1,-1)">consultation + tests</text>
+			<path d="M 120,171 L 170,210 Z" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="170 210, 165 201, 175 201" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="260" y="95" width="240" height="76" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="348.2155" y="154" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,308) scale(1,-1)">InPatientBill</text>
+			<text x="268" y="134" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,268) scale(1,-1)">total(), type() : override</text>
+			<text x="268" y="118" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,236) scale(1,-1)">days * rate + procedures + medicines</text>
+			<path d="M 380,171 L 330,210 Z" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="330 210, 325 201, 335 201" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="0" y="0" width="240" height="76" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="89.1285" y="59" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,118) scale(1,-1)">DayCareBill</text>
+			<text x="8" y="39" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,78) scale(1,-1)">total(), type() : override</text>
+			<text x="8" y="23" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,46) scale(1,-1)">package price</text>
+			<path d="M 120,76 L 170,210 Z" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="170 210, 165 201, 175 201" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="260" y="0" width="240" height="76" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,97%,98%); fill-rule: evenodd;"/>
+			<text x="341.7915" y="59" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,118) scale(1,-1)">EmergencyBill</text>
+			<text x="268" y="39" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,78) scale(1,-1)">total(), type() : override</text>
+			<text x="268" y="23" style="font-family: Helvetica; font-size: 11px;fill: rgb(9%,18%,23%); stroke:none;" transform="translate(0,46) scale(1,-1)">base + hours * rate</text>
+			<path d="M 380,76 L 330,210 Z" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="330 210, 325 201, 335 201" style="stroke: rgb(3%,41%,43%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

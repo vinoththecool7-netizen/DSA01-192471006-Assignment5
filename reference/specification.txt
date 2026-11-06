@@ -1,0 +1,309 @@
+ASSIGNMENT 5 – CO5 
+RELIABLE SOFTWARE WITH RUNTIME POLYMORPHISM AND EXCEPTIONS 
+Course Outcome – CO5: Build robust C++ applications by applying virtual functions,  runtime polymorphism and exception handling mechanisms to develop reliable and error resilient software solutions (virtual and pure virtual functions, runtime polymorphism,  throwing, catching and rethrowing exceptions, and specifying exceptions) 
+• Create a GitHub repository named DSA01-<RegisterNumber>-Assignment5 and  share it with the course faculty (public, or private with the faculty added as a collaborator). 
+• Keep one folder for each task (for example: Task01, Task02 … or Q1, Q2 …),  containing the C++ source files, input files and output screenshots. 
+• Include a README.md with your name, register number, compiler and version (for  example g++ 13), the exact g++ command used to compile (for example g++ -std=c++17 - Wall -Wextra), the steps to run each program, and a short note of the result of each task. 
+• Commit your work progressively – at least one commit for each task. The commit  history will be checked; a single upload of all files on the last day will not be accepted. 
+• Submit the GitHub link below and on the cover page of your report. An assignment  submitted without a working GitHub link will not be evaluated. 
+GitHub Repository Link: __________________________________________________ How to Answer the Additional Questions 
+Complete the Code: Copy the given code into your repository, replace every TODO with  working code without changing the rest of the program, execute it and compare your output  with the expected output. 
+Predict the Output: Write the exact output of the given program before running it. Then run it  and explain every difference between your prediction and the actual output, using the C++  rules involved. Predictions written after running the program will not be credited.
+Alternative Concept and Complexity Analysis: Describe how the solution would change if the  alternative concept were used, with code or pseudocode, and analyse and compare the time  complexity and space complexity of both solutions using Big-O notation, supported by your  own measurements wherever possible. 
+Assessment Components 
+PART A – Design: 25 Marks 
+PART B – Implementation & Experimental Investigation: 25 Marks 
+PURPOSE OF THE ASSIGNMENT 
+Large programs must handle many kinds of objects through a common interface, and must  keep working – or fail safely – when something goes wrong. 
+This assignment investigates a fundamental question: 
+How should a C++ programmer design a program so that new kinds of objects can be added  without changing working code, and errors are reported and handled without losing data or  resources? 
+You are expected to demonstrate the following progression: 
+Abstract → Specialise → Bind at Run Time → Detect Errors → Throw → Catch → Recover  → Measure → Decide 
+Simply obtaining a program that runs is not sufficient. Your design reasoning, experimental  evidence and interpretation are all part of the assessment. 
+Case Study — Hospital Billing and Insurance Claims 
+A multi-speciality hospital raises different kinds of bills: out-patient (consultation and tests),  in-patient (room charges per day, procedures and medicines), day-care surgery (package  price) and emergency (base charge plus time-based charges). Bills may be paid by the patient,  by an insurance company within the policy cover, or by a government health scheme with  fixed package rates. The billing system must compute every bill correctly, reject invalid  claims with clear reasons, and never lose a bill because of an error. 
+PART A – DESIGN 25 Marks 
+All pseudocode must follow the SIMATS Engineering – Standard for Algorithmic  Pseudocode. 
+TASK A1 – DESIGN THE POLYMORPHIC BILL HIERARCHY 7 Marks Bloom’s Level: K5 – Evaluate 
+A1.1 – Identify the Common Interface | 2 Marks
+Identify the operations that every bill must provide (for example: total(), type(), print()) and  the data common to all bills. 
+A1.2 – Design the Hierarchy | 3 Marks 
+Design an abstract base class Bill with pure virtual functions, and derived classes for each  kind of bill. Draw the UML class diagram and mark which functions are virtual, pure virtual  and overridden. 
+A1.3 – Process All Bills Together | 2 Marks 
+Write pseudocode that computes the day’s total for an array of base-class pointers to bills of  every kind. 
+Alternative Concept and Complexity Analysis 
+If the bills were represented by one Bill structure with a type field and a switch in total(),  instead of an abstract base class with virtual functions, what would the solution be? Analyse  the time to total n bills (O(n) in both, with a switch or a virtual call per bill) and the space per  bill, and the code changed when a new bill type is added. 
+Evidence Expected 
+A common interface, a UML hierarchy with virtual functions marked, and pseudocode for  processing all bills. 
+TASK A2 – UNDERSTAND RUNTIME BINDING5 Marks 
+Bloom’s Level: K5 – Evaluate 
+A2.1 – Early and Late Binding | 2 Marks 
+Explain the difference between compile-time (early) and run-time (late) binding using a call  through a Bill pointer. 
+A2.2 – The Virtual Table | 2 Marks 
+Draw the virtual tables (vtables) of Bill, OutPatientBill and InPatientBill, and show how a  call b->total() reaches the right function. 
+A2.3 – Virtual Destructors | 1 Mark 
+Explain why Bill must have a virtual destructor. 
+Predict the Output 
+Write the exact output of the program below BEFORE running it. Then compile and run it,  and explain every difference between your prediction and the actual output. 
+#include <iostream>
+struct Bill { 
+ virtual ~Bill() { std::cout << "~Bill "; } 
+ virtual double total() const = 0; 
+ void show() const { std::cout << total() << ' '; } 
+}; 
+struct OPBill : Bill { 
+ ~OPBill() override { std::cout << "~OPBill "; } 
+ double total() const override { return 500; } 
+}; 
+int main() 
+{ 
+ Bill* b = new OPBill; 
+ b->show(); 
+ delete b; 
+ std::cout << '\n'; 
+} 
+My predicted output (write before running): 
+Explain how show(), a non-virtual function, reached OPBill::total(). Then remove virtual  from ~Bill, predict the new output and verify it under -fsanitize=address. 
+Alternative Concept and Complexity Analysis 
+If total() were not virtual and the program called the correct derived function by testing the  type of each bill (with dynamic_cast), what would the solution be? Analyse the time per bill 
+(one virtual call versus up to k casts for k bill types) and the space used by the vtable pointer  in each object. 
+Evidence Expected 
+Correct explanations of binding, vtable diagrams and the role of the virtual destructor. 
+TASK A3 – DESIGN WITH ABSTRACT CLASSES 5 Marks 
+Bloom’s Level: K5 – Evaluate 
+A3.1 – Payer Interface | 3 Marks 
+Design an abstract class Payer with a pure virtual function amountCovered(const Bill&), and  derived classes SelfPay, Insurance (cover limit and co-payment percentage) and  GovernmentScheme (fixed package rates). 
+A3.2 – Extension | 2 Marks 
+Show how a new payer (for example a corporate tie-up) can be added without changing any  existing class. 
+Alternative Concept and Complexity Analysis 
+If the payers were represented by function pointers or std::function objects (a policy function  chosen at run time) instead of an abstract Payer class, what would the solution be? Analyse  the time per call (O(1) in both) and the space per payer, and compare how each design stores  data such as the cover limit. 
+Evidence Expected 
+An abstract payer design with derived classes and a demonstrated extension path. 
+TASK A4 – DESIGN THE EXCEPTION STRATEGY 4 Marks 
+Bloom’s Level: K5 – Evaluate 
+A4.1 – Identify the Errors | 2 Marks 
+List every error that can occur (negative charges, claim above cover, unknown package,  missing patient record, memory allocation failure) and design a hierarchy of exception  classes derived from std::exception (for example BillingError, ClaimError). 
+A4.2 – Specify Exceptions | 2 Marks 
+Decide which functions may throw and which must never throw, and mark the latter  noexcept. Explain why destructors should not throw. 
+Alternative Concept and Complexity Analysis
+If errors were reported by return codes (an enum Status or a bool with an error message)  instead of exceptions, what would the solution be? Analyse the time on the normal path and  on the error path, and the extra space and code needed to pass every error back to the caller. 
+Evidence Expected 
+An error list, an exception class hierarchy and justified exception specifications. 
+TASK A5 – DESIGN RECOVERY AND RETHROWING 4 Marks 
+Bloom’s Level: K5 – Evaluate 
+A5.1 – Where to Catch | 2 Marks 
+Decide where each exception is caught, where it is logged and rethrown with throw;, and  where the program finally reports it to the user. 
+A5.2 – No Leaks on Errors | 2 Marks 
+Explain stack unwinding, and how objects with destructors (RAII) ensure that memory and  files are released when an exception passes through a function. 
+Predict the Output 
+Write the exact output of the program below BEFORE running it. Then compile and run it,  and explain every difference between your prediction and the actual output. 
+#include <iostream> 
+#include <string> 
+struct Guard { 
+ std::string n; 
+ explicit Guard(const std::string& s) : n(s) {} 
+ ~Guard() { std::cout << '~' << n << ' '; } 
+}; 
+void f() 
+{ 
+ Guard g("f"); 
+ throw 42; 
+}
+int main() 
+{ 
+ try { 
+ Guard m("main"); 
+ f(); 
+ std::cout << "not printed "; 
+ } catch (int x) { 
+ std::cout << "caught " << x; 
+ } catch (...) { 
+ std::cout << "other"; 
+ } 
+ std::cout << '\n'; 
+} 
+My predicted output (write before running): 
+Explain the order in which the destructors ran and why "not printed" never appears. Alternative Concept and Complexity Analysis 
+If memory were released by delete in every catch block, instead of by destructors (RAII  objects such as std::unique_ptr or std::vector), what would the solution be? Analyse the time  (the same) and the code size, and count the places where a leak can occur when a new error  path is added. 
+Evidence Expected 
+A catch-and-rethrow design and a correct explanation of stack unwinding and resource safety.
+PART B – IMPLEMENTATION & EXPERIMENTAL INVESTIGATION 25 Marks 
+Part B assesses whether your design reasoning survives contact with actual computation. You  are expected to: 
+Implement → Instrument → Stress → Measure → Compare → Interpret 
+Compile with g++ -std=c++17 -Wall -Wextra and run the tests with -fsanitize=address.  Execution screenshots alone are insufficient. 
+TASK B1 – IMPLEMENT AND VALIDATE THE POLYMORPHIC BILLING 7 Marks Bloom’s Level: K5 – Evaluate 
+B1.1 – Validate the Implementation | 2 Marks 
+Implement the hierarchy from A1 and A3 and test one bill of each kind with each payer.  Verify the totals by hand. 
+B1.2 – Compare with Your Design | 1 Mark 
+Compare your code with your Part A design and explain any change. 
+B1.3 – Prove Runtime Binding | 2 Marks 
+Remove the virtual keyword from total() and record how the output changes when bills are  processed through base-class pointers. 
+B1.4 – Prove the Virtual Destructor | 2 Marks 
+Remove the virtual destructor, run under the address sanitizer and record the result. Complete the Code 
+Complete TODO 1 to TODO 3 below, and execute the program. 
+#include <iostream> 
+#include <string> 
+class Bill { 
+protected: 
+ std::string patient; 
+public: 
+ explicit Bill(const std::string& p) : patient(p) {} 
+ virtual ~Bill() = default;
+ // TODO 1: Declare a pure virtual function total() const returning double, and a  // virtual function type() const returning "Bill" 
+  
+ void print() const 
+ { 
+ std::cout << type() << ' ' << patient << ": " << total() << '\n';  } 
+}; 
+class OutPatient : public Bill { 
+ double consultation, tests; 
+public: 
+ OutPatient(const std::string& p, double c, double t) 
+ : Bill(p), consultation(c), tests(t) {} 
+ // TODO 2: Override total() as consultation + tests, and type() as "OP"   
+}; 
+class InPatient : public Bill { 
+ int days; 
+ double perDay, surgery; 
+public: 
+ InPatient(const std::string& p, int d, double rate, double s) 
+ : Bill(p), days(d), perDay(rate), surgery(s) {} 
+ // TODO 3: Override total() as days × perDay + surgery, and type() as "IP"
+  
+}; 
+int main() 
+{ 
+ Bill* bills[] = {new OutPatient("Ravi", 500, 1200), 
+ new InPatient("Meena", 3, 2500, 40000)}; 
+ double sum = 0; 
+ for (Bill* b : bills) { 
+ b->print(); // runtime polymorphism 
+ sum += b->total(); 
+ } 
+ std::cout << "Total " << sum << '\n'; 
+ for (Bill* b : bills) delete b; // virtual destructor runs the right destructor } 
+Expected output: 
+OP Ravi: 1700 
+IP Meena: 47500 
+Total 49200 
+Remove virtual from total() and explain the compiler error you receive. Alternative Concept and Complexity Analysis 
+If the bills were processed with templates (compile-time polymorphism) for each bill type in  its own container, instead of virtual functions through a base-class pointer, what would the  solution be? Analyse the time per bill (no virtual call) and the space (one container per type),  and what is lost when bills of all types must be kept in one list. 
+Evidence Expected 
+Working code, a verified test table, and evidence of what virtual functions and virtual  destructors change.
+TASK B2 – ENGINEER ERROR CONDITIONS 5 Marks 
+Bloom’s Level: K5 – Evaluate 
+• Feed the system negative charges, a claim above the cover, an unknown package code  and text where a number is expected (std::stod throws std::invalid_argument) 
+• Force a memory allocation failure (for example by requesting an impossibly large  array) and catch std::bad_alloc 
+• Show that a catch(...) at the top level keeps the program running and that all objects  are destroyed (print messages in destructors) 
+• Explain what each test reveals about your exception design 
+Predict the Output 
+Write the exact output of the program below BEFORE running it. Then compile and run it,  and explain every difference between your prediction and the actual output. 
+#include <iostream> 
+#include <stdexcept> 
+void validate(double amount) 
+{ 
+ if (amount < 0) throw std::invalid_argument("negative"); 
+ if (amount > 1e6) throw std::out_of_range("too large"); 
+ std::cout << "ok "; 
+} 
+void process(double amount) 
+{ 
+ try { 
+ validate(amount); 
+ } catch (const std::out_of_range& e) { 
+ std::cout << "[log " << e.what() << "] ";
+ throw; 
+ } 
+} 
+int main() 
+{ 
+ for (double a : {100.0, -5.0, 2e6}) { 
+ try { 
+ process(a); 
+ std::cout << "done "; 
+ } catch (const std::exception& e) { 
+ std::cout << "caught " << e.what() << ' '; 
+ } 
+ } 
+ std::cout << '\n'; 
+} 
+My predicted output (write before running): 
+Explain which handler caught each exception and why only one exception was logged before  being rethrown. 
+Complete the Code 
+Complete TODO 1 and TODO 2 below, and execute the program. 
+#include <iostream> 
+#include <stdexcept>
+class ClaimError : public std::runtime_error { 
+public: 
+ using std::runtime_error::runtime_error; 
+}; 
+double approve(double billed, double cover) 
+{ 
+ // TODO 1: Throw std::invalid_argument("negative amount") if billed or cover is  // negative; throw ClaimError("exceeds cover") if billed > cover; otherwise return  // billed 
+  
+} 
+double settle(double billed, double cover) 
+{ 
+ try { 
+ return approve(billed, cover); 
+ } catch (const ClaimError& e) { 
+ // TODO 2: Print "audit: " followed by the message, then rethrow the SAME  // exception 
+  
+ } 
+} 
+int main() 
+{ 
+ double cases[][2] = {{40000, 50000}, {60000, 50000}, {-1, 50000}};  for (auto& c : cases) {
+ try { 
+ double paid = settle(c[0], c[1]); 
+ std::cout << "approved " << paid << '\n'; 
+ } catch (const ClaimError& e) { 
+ std::cout << "claim rejected: " << e.what() << '\n'; 
+ } catch (const std::exception& e) { 
+ std::cout << "error: " << e.what() << '\n'; 
+ } 
+ } 
+} 
+Expected output: 
+approved 40000 
+audit: exceeds cover 
+claim rejected: exceeds cover 
+error: negative amount 
+Replace throw; with throw e; and explain the difference (hint: the type of the rethrown  object). 
+Alternative Concept and Complexity Analysis 
+If invalid claims were rejected by std::optional<double> (no value means rejected) instead of  by throwing exceptions, what would the solution be? Analyse the time for 1,000,000 claims  with 0%, 1% and 50% invalid claims in both designs, and the extra space per result. 
+Evidence Expected 
+Deliberately constructed error conditions, observed behaviour and a reasoned explanation. 
+TASK B3 – VIRTUAL FUNCTIONS vs switch vs EXCEPTIONS: THE COST 8 Marks Bloom’s Level: K5 – Evaluate 
+B3.1 – Correctness on Small Data | 2 Marks
+Compute the totals of the same 10 bills using (a) virtual functions and (b) a single Bill struct  with a type field and a switch statement. Verify that both agree. 
+B3.2 – Increase the Data Size | 2 Marks 
+Measure the time of both versions for 1,000, 1,000,000 and 10,000,000 bills, compiled with - O2. 
+B3.3 – Cost of Exceptions | 2 Marks 
+Measure the time to validate 1,000,000 bills when errors are reported by return codes and  when they are reported by exceptions, with 0%, 1% and 50% invalid bills. 
+B3.4 – Engineering Trade-Off | 2 Marks 
+Explain the results, and state when each approach should be used. 
+Alternative Concept and Complexity Analysis 
+If the bill types were held in std::variant<OutPatientBill, InPatientBill, …> and processed  with std::visit, instead of virtual functions or a switch, what would the solution be? Measure  the time for 10,000,000 bills against your two versions, and analyse the space per element  (the size of the largest alternative plus a tag). 
+Evidence Expected 
+Verified correctness, measured comparisons and a reasoned trade-off. 
+TASK B4 – FINAL ENGINEERING DECISION 5 Marks 
+Bloom’s Level: K5 – Evaluate 
+The hospital group now runs 15 hospitals, adds two new bill types and three new payers  every year, and processes 200,000 bills a day. 
+B4.1 – Implement a Practical Extension | 2 Marks 
+Add one new bill type and one new payer to your program without changing any existing  class, and show that all earlier tests still pass. 
+B4.2 – Check Resource Safety | 1 Mark 
+Show a clean address-sanitizer report for a run that includes thrown and caught exceptions. B4.3 – Production Decision | 2 Marks 
+Decide whether the polymorphic design with exceptions is suitable for the hospital group,  using your measurements and the effort of extension. Justify your decision. 
+Alternative Concept and Complexity Analysis
+If new bill types and payers were loaded as plug-ins (configuration files describing the rates)  instead of being written as new C++ classes, what would the solution be? Analyse the time  per bill (rule interpretation versus a virtual call) and the space for the rules, and compare the  effort and risk of each kind of extension. 
+Evidence Expected 
+A working extension, a clean sanitizer report and an evidence-based production decision. 
+SUBMISSION REQUIREMENTS 
+GitHub repository link (mandatory) containing the executed code for every task, including  every completed “Complete the Code” program, with input files, output screenshots and a  README.md. 
+For Part A, submit the UML diagrams, vtable diagrams, exception hierarchy, pseudocode and  reasoning. C++ code will not be accepted in place of pseudocode. 
+For Part B, submit C++ source code, test inputs, predictions, actual outputs, timings and  sanitizer reports, with interpretation. 
+Students are expected to use the same engineering workflow throughout the assignment: 
+UNDERSTAND → ABSTRACT → DESIGN → IMPLEMENT → BREAK → MEASURE  → INTERPRET 
+The key question is not simply “Does the program work?” It is also: 
+Can new kinds of bills and payers be added safely, and does the program stay correct and  leak-free when things go wrong?
