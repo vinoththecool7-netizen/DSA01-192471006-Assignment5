@@ -1,0 +1,2 @@
+10 hand totals agree; total=1716
+sizeof Base=8 OP=24 IP=32 DC=16 ER=32 pointer=8 switch=32 variant=32 optional<double>=16 status=4

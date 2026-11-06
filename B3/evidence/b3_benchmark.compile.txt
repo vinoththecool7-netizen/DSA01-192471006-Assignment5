@@ -1,0 +1,2 @@
+$ g++ -std=c++17 -Wall -Wextra -O2 B3/benchmark.cpp -o build/b3_benchmark
+exit=0

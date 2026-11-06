@@ -1,0 +1,27 @@
+{
+  "name": "b3_small_asan",
+  "source": "B3/benchmark.cpp",
+  "source_sha256": "40ffff835eaaa4086c6a423e46db483558942b668eca94f01e31b1119c205863",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B3/benchmark.cpp",
+    "-o",
+    "build/b3_small_asan"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:43:17.444389+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "method,n,repeat,ms,checksum\n",
+  "stderr": "10 hand totals agree; total=1716\nsizeof Base=8 OP=24 IP=32 DC=16 ER=32 pointer=8 switch=32 variant=32 optional<double>=16 status=4\n",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}
