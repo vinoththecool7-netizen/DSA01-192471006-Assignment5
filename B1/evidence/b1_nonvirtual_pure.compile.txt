@@ -1,0 +1,12 @@
+$ g++ -std=c++17 -Wall -Wextra -fsanitize=address -g -fno-omit-frame-pointer -x c++ B1/nonvirtual_pure.cpp.txt -o build/b1_nonvirtual_pure
+B1/nonvirtual_pure.cpp.txt:9:9: error: 'total' is not virtual and cannot be declared pure
+    9 |  double total() const = 0;
+      |         ^               ~
+B1/nonvirtual_pure.cpp.txt:20:23: error: only virtual member functions can be marked 'override'
+   20 |  double total() const override { return consultation + tests; }
+      |                       ^~~~~~~~
+B1/nonvirtual_pure.cpp.txt:29:23: error: only virtual member functions can be marked 'override'
+   29 |  double total() const override { return days * perDay + surgery; }
+      |                       ^~~~~~~~
+3 errors generated.
+exit=1

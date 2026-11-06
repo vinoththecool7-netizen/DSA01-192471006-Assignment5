@@ -1,0 +1,25 @@
+{
+  "name": "b1_complete",
+  "source": "B1/complete.cpp",
+  "source_sha256": "7e4bf54e024625bf3d1c3ee879ec77079970a4a7c8c3f899e2bde865390a9aad",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B1/complete.cpp",
+    "-o",
+    "build/b1_complete"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:38:44.811024+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "OP Ravi: 1700\nIP Meena: 47500\nTotal 49200\n",
+  "stderr": ""
+}

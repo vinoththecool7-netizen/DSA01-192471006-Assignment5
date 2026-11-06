@@ -1,0 +1,25 @@
+{
+  "name": "b1_tests",
+  "source": "B1/main.cpp",
+  "source_sha256": "c44943a65b3cd4a1d4bcd6a8f59461ba88cccfd42f509bdc1fabcc1a71190033",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B1/main.cpp",
+    "-o",
+    "build/b1_tests"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:38:45.847713+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "OP total 1700 payer0=1700 payer1=1360 payer2=1000\nIP total 48000 payer0=48000 payer1=38400 payer2=40000\nDC total 20000 payer0=20000 payer1=16000 payer2=18000\nER total 2500 payer0=2500 payer1=2000 payer2=2500\nday=72200; 12 payer checks PASS\nzero, exact cover, 100 percent copay PASS\n",
+  "stderr": ""
+}
