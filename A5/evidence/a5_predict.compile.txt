@@ -1,0 +1,2 @@
+$ g++ -std=c++17 -Wall -Wextra -fsanitize=address -g -fno-omit-frame-pointer A5/predict.cpp -o build/a5_predict
+exit=0

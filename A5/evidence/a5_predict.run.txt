@@ -1,0 +1,3 @@
+$ build/a5_predict
+~f ~main caught 42
+exit=0

@@ -1,0 +1,25 @@
+{
+  "name": "a5_predict",
+  "source": "A5/predict.cpp",
+  "source_sha256": "4b7c885eb93d41c4c6ff7d4cae5057a1ba76a0a50ac7b0b0f7d25d97edaca55a",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "A5/predict.cpp",
+    "-o",
+    "build/a5_predict"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:38:09.715628+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "~f ~main caught 42\n",
+  "stderr": ""
+}
