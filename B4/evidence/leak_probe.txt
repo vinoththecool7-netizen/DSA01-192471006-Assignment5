@@ -1,0 +1,3 @@
+$ ASAN_OPTIONS=detect_leaks=1 build/b4_extension
+==15017==AddressSanitizer: detect_leaks is not supported on this platform.
+exit=-6

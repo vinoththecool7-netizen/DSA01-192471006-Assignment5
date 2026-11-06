@@ -1,0 +1,9 @@
+OP total 1700 payer0=1700 payer1=1360 payer2=1000
+IP total 48000 payer0=48000 payer1=38400 payer2=40000
+DC total 20000 payer0=20000 payer1=16000 payer2=18000
+ER total 2500 payer0=2500 payer1=2000 payer2=2500
+day=72200; 12 payer checks PASS
+zero, exact cover, 100 percent copay PASS
+TELE total=1200 corporate=1080 PASS
+recovered unknown package
+extension and original regression PASS

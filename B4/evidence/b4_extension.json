@@ -1,0 +1,30 @@
+{
+  "local_headers_sha256": {
+    "B4/extension.hpp": "209b05ae0e01e758d4cd798fb0d42bf98e39090abc41e4fb4d5128b20a49c35e",
+    "include/billing.hpp": "ba749950ba0af987752445b6f0d90d52597ff5e291af30a7ab33162af06b554c",
+    "B1/test_cases.hpp": "b4082926e67d331d6bc640719628eb615b46bc0056927c6e50c593e59dba53de"
+  },
+  "name": "b4_extension",
+  "source": "B4/main.cpp",
+  "source_sha256": "00141e5a185f95e0e0b135a40e7a90ce0a5f43fd7d3a977160f6d45c42e20e7f",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B4/main.cpp",
+    "-o",
+    "build/b4_extension"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:49:28.442942+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "OP total 1700 payer0=1700 payer1=1360 payer2=1000\nIP total 48000 payer0=48000 payer1=38400 payer2=40000\nDC total 20000 payer0=20000 payer1=16000 payer2=18000\nER total 2500 payer0=2500 payer1=2000 payer2=2500\nday=72200; 12 payer checks PASS\nzero, exact cover, 100 percent copay PASS\nTELE total=1200 corporate=1080 PASS\nrecovered unknown package\nextension and original regression PASS\n",
+  "stderr": ""
+}
