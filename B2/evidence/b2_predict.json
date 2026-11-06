@@ -1,0 +1,27 @@
+{
+  "name": "b2_predict",
+  "source": "B2/predict.cpp",
+  "source_sha256": "44f18e45bd863c6c1b345f6e04d10b9a1b8fb512e618c785fbdd0c57e5b26ab6",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B2/predict.cpp",
+    "-o",
+    "build/b2_predict"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:48:31.450730+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "ok done caught negative [log too large] caught too large \n",
+  "stderr": "",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}

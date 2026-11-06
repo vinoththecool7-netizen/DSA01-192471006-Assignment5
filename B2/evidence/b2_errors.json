@@ -1,0 +1,29 @@
+{
+  "name": "b2_errors",
+  "source": "B2/errors.cpp",
+  "source_sha256": "984c56e10245372bb0790089050ee0f818bb305209d653b58f9a758a95a4bc00",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B2/errors.cpp",
+    "-o",
+    "build/b2_errors"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:48:33.307514+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "~tracked-bill ~scope case 0 caught invalid charge\naudit exceeds cover ~tracked-bill ~scope case 1 caught exceeds cover\naudit unknown package ~tracked-bill ~scope case 2 caught unknown package\n~tracked-bill ~scope case 3 caught stod: no conversion\n~tracked-bill ~scope case 4 caught missing patient record\n~tracked-bill ~scope case 5 caught unknown; continuing\n~tracked-bill ~scope case 6 caught invalid charge\n~tracked-bill ~scope case 7 caught copay above 100 percent\n~tracked-bill ~scope case 8 caught stod: out of range\n9 errors recovered; live guards=0; live tracked bills=0\n",
+  "stderr": "",
+  "local_headers_sha256": {
+    "include/billing.hpp": "ba749950ba0af987752445b6f0d90d52597ff5e291af30a7ab33162af06b554c"
+  },
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}

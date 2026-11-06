@@ -1,0 +1,12 @@
+$ build/b2_errors
+~tracked-bill ~scope case 0 caught invalid charge
+audit exceeds cover ~tracked-bill ~scope case 1 caught exceeds cover
+audit unknown package ~tracked-bill ~scope case 2 caught unknown package
+~tracked-bill ~scope case 3 caught stod: no conversion
+~tracked-bill ~scope case 4 caught missing patient record
+~tracked-bill ~scope case 5 caught unknown; continuing
+~tracked-bill ~scope case 6 caught invalid charge
+~tracked-bill ~scope case 7 caught copay above 100 percent
+~tracked-bill ~scope case 8 caught stod: out of range
+9 errors recovered; live guards=0; live tracked bills=0
+exit=0

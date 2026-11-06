@@ -1,0 +1,3 @@
+$ build/b2_allocation
+~allocation-guard caught std::bad_alloc
+exit=0

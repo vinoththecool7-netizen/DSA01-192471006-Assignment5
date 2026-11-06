@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{font:17px Arial;color:#18303d;background:#edf3f5;padding:32px}main{background:white;padding:32px;border-top:6px solid #086a70;max-width:1080px;margin:auto}h1{color:#086a70}h2{font-size:18px;margin-top:28px}p{line-height:1.5}pre{font:15px monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f8;padding:18px}svg{display:block;width:100%;height:auto;max-height:500px}small{color:#46616e}</style></head><body><main><h1>B2 - Recorded evidence viewer</h1><p>S Vinoth Kumar | 192471006</p><small>Genuine captured execution logs and conceptual design figures. This viewer is not an original terminal capture.</small><h2>b2_allocation.run.txt</h2><pre>$ build/b2_allocation
+~allocation-guard caught std::bad_alloc
+exit=0
+</pre><h2>b2_complete.run.txt</h2><pre>$ build/b2_complete
+approved 40000
+audit: exceeds cover
+claim rejected: exceeds cover
+error: negative amount
+exit=0
+</pre><h2>b2_errors.run.txt</h2><pre>$ build/b2_errors
+~tracked-bill ~scope case 0 caught invalid charge
+audit exceeds cover ~tracked-bill ~scope case 1 caught exceeds cover
+audit unknown package ~tracked-bill ~scope case 2 caught unknown package
+~tracked-bill ~scope case 3 caught stod: no conversion
+~tracked-bill ~scope case 4 caught missing patient record
+~tracked-bill ~scope case 5 caught unknown; continuing
+~tracked-bill ~scope case 6 caught invalid charge
+~tracked-bill ~scope case 7 caught copay above 100 percent
+~tracked-bill ~scope case 8 caught stod: out of range
+9 errors recovered; live guards=0; live tracked bills=0
+exit=0
+</pre><h2>b2_predict.run.txt</h2><pre>$ build/b2_predict
+ok done caught negative [log too large] caught too large 
+exit=0
+</pre><h2>b2_slicing.run.txt</h2><pre>$ build/b2_slicing
+throw; preserves Detailed
+throw e; slices to ClaimError
+exit=0
+</pre></main></body></html>

@@ -1,0 +1,4 @@
+$ build/b2_slicing
+throw; preserves Detailed
+throw e; slices to ClaimError
+exit=0

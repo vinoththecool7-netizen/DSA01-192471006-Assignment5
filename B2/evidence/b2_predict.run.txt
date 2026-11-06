@@ -1,0 +1,3 @@
+$ build/b2_predict
+ok done caught negative [log too large] caught too large 
+exit=0

@@ -1,0 +1,27 @@
+{
+  "name": "b2_slicing",
+  "source": "B2/slicing.cpp",
+  "source_sha256": "fd613c6a7364bdddaba61e4c2fa5588fa98a6e7044286194adc501e86dc0af30",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B2/slicing.cpp",
+    "-o",
+    "build/b2_slicing"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:48:34.895263+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "throw; preserves Detailed\nthrow e; slices to ClaimError\n",
+  "stderr": "",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}

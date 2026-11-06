@@ -1,0 +1,27 @@
+{
+  "name": "b2_complete",
+  "source": "B2/complete.cpp",
+  "source_sha256": "e2550d39cbbefc8fc90592a5604474d70d80f37bed98a06bc0f01363f9ccf363",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B2/complete.cpp",
+    "-o",
+    "build/b2_complete"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:48:32.465011+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "approved 40000\naudit: exceeds cover\nclaim rejected: exceeds cover\nerror: negative amount\n",
+  "stderr": "",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}

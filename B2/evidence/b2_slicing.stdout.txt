@@ -1,0 +1,2 @@
+throw; preserves Detailed
+throw e; slices to ClaimError

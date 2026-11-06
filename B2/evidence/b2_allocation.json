@@ -1,0 +1,27 @@
+{
+  "name": "b2_allocation",
+  "source": "B2/allocation.cpp",
+  "source_sha256": "ed2ccc0f4d5115f33b335988c92f3b7a1d2eabca706c8c0d4423a28e224f30cd",
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=address",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "B2/allocation.cpp",
+    "-o",
+    "build/b2_allocation"
+  ],
+  "compile_exit": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.4.1.1)\nTarget: arm64-apple-darwin27.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "input": "embedded fixtures; no stdin",
+  "utc": "2026-11-06T07:48:34.054821+00:00",
+  "path_export": "project and home prefixes only",
+  "run_exit": 0,
+  "stdout": "~allocation-guard caught std::bad_alloc\n",
+  "stderr": "",
+  "local_headers_sha256": {},
+  "header_export_note": "Hashes exported after execution; referenced headers unchanged since the recorded build."
+}
